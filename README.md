@@ -31,7 +31,7 @@ This is a simple project to run on your device to convert long tables into beaut
 - Your Powerpoint slides are ready in seconds!
 - Output stored in `src/main/resources/output-folder-name` folder.
 
-## Up Next
+## Tracklist
 - [x] Run by passing just input & output folder
 - [x] Add Header
 - [x] Add Footer
