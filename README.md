@@ -12,7 +12,9 @@ This is a simple project to run on your CLI, to convert long tables into beautif
 - Coming soon.
 
 ## Up Next
-- [ ] CLI commands 
 - [x] Run by passing just input & output folder
+- [x] Add Header
+- [ ] Set Config JSON
+- [ ] CLI commands 
 - [ ] JSON support
-- [ ] Add Header, Footer
+- [ ] Add Footer

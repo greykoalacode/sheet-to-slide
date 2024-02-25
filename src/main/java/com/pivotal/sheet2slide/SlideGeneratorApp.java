@@ -30,7 +30,6 @@ public class SlideGeneratorApp {
 
     public static void main(String[] args) throws Exception {
         // input
-
         long startTime = System.nanoTime();
         // Load CSV data
         List<File> csvFiles = readCSVFiles(inputFolder);
@@ -141,7 +140,7 @@ public class SlideGeneratorApp {
 
     private static void setSlideLayout(XSLFSlide slide){
         String headerText = "This is Header";
-        String headerSubText = "Issues listed from 16-02-2024 to 24-02-2024";
+        String headerSubText = "SubHeader text having issues listed from Yesterday to Today";
 //        XSLFAutoShape headerShape = slide.createAutoShape();
 //        headerShape.setText("This is Header");
 //        headerShape.addNewTextParagraph().addNewTextRun().setText("issues listed from 16-02-2024 to 24-02-2024");
