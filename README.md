@@ -1,4 +1,8 @@
+<div style="text-align: center;">
+<img src="Logo.webp" width="200" height="200" alt="logo"/>
+
 # sheet-to-slide
+</div>
 
 This is a simple project to run on your device to convert long tables into beautiful PPTx slides!
 

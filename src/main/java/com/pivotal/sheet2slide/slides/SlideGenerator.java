@@ -129,7 +129,7 @@ public class SlideGenerator {
         }
     }
 
-    public static void setCellBorder(XSLFTableCell cell) {
+    private static void setCellBorder(XSLFTableCell cell) {
         XSLFTableCell.BorderEdge[] borderEdges = {
                 XSLFTableCell.BorderEdge.bottom,
                 XSLFTableCell.BorderEdge.left,
