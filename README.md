@@ -4,8 +4,6 @@
 
 This is a simple project to run on your device to convert long tables into beautiful PPTx slides!
 
-<img src="s2s-demo.gif" alt="logo"/>
-
 ## Libraries used
 - Apache POI
 - OpenCSV
