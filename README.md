@@ -10,6 +10,11 @@ This is a simple project to run on your device to convert long tables into beaut
 - SLF4J
 - Log4J 2
 
+## Prerequisites
+- JDK
+- Apache Maven
+- IDE - preferably Intellij IDEA
+
 ## Features
 - **Powerpoint format (.pptx)** supported.
 - **Dynamically** add rows to slide based on Table:Slide ratio mentioned. (Default: 0.6 , i.e. 60% of slide height will be occupied by Table).
