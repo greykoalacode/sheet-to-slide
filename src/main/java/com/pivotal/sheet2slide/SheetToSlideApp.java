@@ -18,8 +18,8 @@ import static com.pivotal.sheet2slide.utils.FileUtils.*;
 /**
  * Slide Generator Class
  */
-public class SlideGeneratorApp {
-    public static final Logger logger = LoggerFactory.getLogger(SlideGeneratorApp.class);
+public class SheetToSlideApp {
+    public static final Logger logger = LoggerFactory.getLogger(SheetToSlideApp.class);
 
     private static String inputFolder;
     private static String outputFolder;
@@ -89,14 +89,14 @@ public class SlideGeneratorApp {
         if (propertiesMap != null) {
             inputFolder = (String) propertiesMap.get("inputFolder");
             outputFolder = (String) propertiesMap.get("outputFolder");
-            return true;
+            return inputFolder != null && outputFolder != null;
         }
         return false;
     }
 
 
     private static void printUsage() {
-        System.out.println("Usage: java PowerPointCLI -i <input CSV file> -o <output PPTX file>");
+        System.out.println("Usage: java SheetToSlideApp -i <input CSV file> -o <output PPTX file>");
         System.out.println("Options:");
         System.out.println("  -i, --input    Specify the input CSV file path.");
         System.out.println("  -o, --output   Specify the output PPTX file path.");

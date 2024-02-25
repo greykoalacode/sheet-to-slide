@@ -1,7 +1,6 @@
 package com.pivotal.sheet2slide.slides;
 
 import org.apache.poi.sl.usermodel.TextParagraph;
-import org.apache.poi.util.Units;
 import org.apache.poi.xslf.usermodel.*;
 
 import java.awt.*;
@@ -9,7 +8,6 @@ import java.awt.geom.Rectangle2D;
 import java.util.List;
 import java.util.Map;
 
-import static com.pivotal.sheet2slide.SlideGeneratorApp.logger;
 import static com.pivotal.sheet2slide.utils.FileUtils.readProperties;
 
 public class SlideGenerator {
@@ -99,7 +97,7 @@ public class SlideGenerator {
             table.setAnchor(new Rectangle(tableXCoordinate, tableYCoordinate, (int) tableWidth, (int) tableHeight));
 
             if (loadSlideProperties()) {
-                setSlideLayout(newSlide, 50+tableYCoordinate+tableHeight);
+                setSlideLayout(newSlide, 50 + tableYCoordinate + tableHeight);
             }
 
             rowCount += currentRow - 1;
@@ -107,20 +105,28 @@ public class SlideGenerator {
     }
 
     private static void setSlideLayout(XSLFSlide slide, double tableHeight) {
-        XSLFTextBox headerTextBox = slide.createTextBox();
-        headerTextBox.setAnchor(new Rectangle2D.Double(50, 0, 500, 25)); // Adjust positioning and size as needed
-        headerTextBox.setText(headerText);
-        XSLFTextRun subHeaderTextRun = headerTextBox.addNewTextParagraph().addNewTextRun();
-        subHeaderTextRun.setFontSize(8.0);
-        subHeaderTextRun.setText(headerSubText);
+        if (headerText != null) {
+            XSLFTextBox headerTextBox = slide.createTextBox();
+            headerTextBox.setAnchor(new Rectangle2D.Double(50, 0, 500, 25)); // Adjust positioning and size as needed
+            headerTextBox.setText(headerText);
+            if (headerSubText != null) {
+                XSLFTextRun subHeaderTextRun = headerTextBox.addNewTextParagraph().addNewTextRun();
+                subHeaderTextRun.setFontSize(8.0);
+                subHeaderTextRun.setText(headerSubText);
+            }
+        }
 
         // setting Footer
-        XSLFTextBox footerTextBox = slide.createTextBox();
-        footerTextBox.setAnchor(new Rectangle2D.Double(50, tableHeight + 75, 500, 25)); // Adjust positioning and size as needed
-        footerTextBox.setText(footerText);
-        XSLFTextRun subFooterTextRun = footerTextBox.addNewTextParagraph().addNewTextRun();
-        subFooterTextRun.setFontSize(8.0);
-        subFooterTextRun.setText(footerSubText);
+        if (footerText != null) {
+            XSLFTextBox footerTextBox = slide.createTextBox();
+            footerTextBox.setAnchor(new Rectangle2D.Double(50, tableHeight + 75, 500, 25)); // Adjust positioning and size as needed
+            footerTextBox.setText(footerText);
+            if (footerSubText != null) {
+                XSLFTextRun subFooterTextRun = footerTextBox.addNewTextParagraph().addNewTextRun();
+                subFooterTextRun.setFontSize(8.0);
+                subFooterTextRun.setText(footerSubText);
+            }
+        }
     }
 
     public static void setCellBorder(XSLFTableCell cell) {
@@ -138,16 +144,11 @@ public class SlideGenerator {
     private static boolean loadSlideProperties() {
         Map<Object, Object> propertiesMap = readProperties();
         if (propertiesMap != null) {
-            try {
-                headerText = (String) propertiesMap.get("headerText");
-                headerSubText = (String) propertiesMap.get("headerSubText");
-                footerText = (String) propertiesMap.get("footerText");
-                footerSubText = (String) propertiesMap.get("footerSubText");
-                return true;
-            } catch (Exception e) {
-                logger.error("Properties loading failed. Check 'resources/setup.properties' file.");
-                logger.error(e.toString());
-            }
+            headerText = (String) propertiesMap.get("headerText");
+            headerSubText = (String) propertiesMap.get("headerSubText");
+            footerText = (String) propertiesMap.get("footerText");
+            footerSubText = (String) propertiesMap.get("footerSubText");
+            return true;
         }
         return false;
     }

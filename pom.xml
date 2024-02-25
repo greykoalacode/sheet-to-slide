@@ -101,7 +101,7 @@
           <configuration>
             <archive>
               <manifest>
-                <mainClass>com.pivotal.sheet2slide.SlideGeneratorApp</mainClass>
+                <mainClass>com.pivotal.sheet2slide.SheetToSlideApp</mainClass>
               </manifest>
             </archive>
           </configuration>

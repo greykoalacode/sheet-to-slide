@@ -1,6 +1,6 @@
 # sheet-to-slide
 
-This is a simple project to run on your CLI, to convert long tables into beautiful PPTx slides!
+This is a simple project to run on your device to convert long tables into beautiful PPTx slides!
 
 ## Libraries used
 - Apache POI
@@ -8,13 +8,37 @@ This is a simple project to run on your CLI, to convert long tables into beautif
 - SLF4J
 - Log4J 2
 
+## Features
+- **Powerpoint format (.pptx)** supported.
+- **Dynamically** add rows to slide based on Table:Slide ratio mentioned. (Default: 0.6 , i.e. 60% of slide height will be occupied by Table).
+- CSV parsing using OpenCSV.
+- Logger added for better understanding of flow.
+- Error cases implemented (No Setup File, No CSV file, etc.)
+
 ## How to Use
-- Coming soon.
+- Clone the repo: `git clone clone-url`
+- Add your **CSV** files in `src/main/resources/input-folder-name` folder.
+- Set the config details in `resources/setup.properties` file.
+  - Input Folder Name
+  - Output Folder Name
+  - Header 
+    - Title 
+    - Subtitle
+  - Footer 
+    - Title
+    - Subtitle
+- Use IDE (Intellij IDEA supported) to run the `SheetToSlideApp.java` file.
+- Your Powerpoint slides are ready in seconds!
+- Output stored in `src/main/resources/output-folder-name` folder.
 
 ## Up Next
 - [x] Run by passing just input & output folder
 - [x] Add Header
-- [ ] Set Config JSON
+- [x] Add Footer
+- [x] Set Config JSON
+- [ ] Inbuilt CSV Parser
+- [ ] Unit Tests
+- [ ] E2E Tests
 - [ ] CLI commands 
 - [ ] JSON support
-- [ ] Add Footer
+- [ ] Google Slides support

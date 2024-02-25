@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-import static com.pivotal.sheet2slide.SlideGeneratorApp.logger;
+import static com.pivotal.sheet2slide.SheetToSlideApp.logger;
 
 public class FileUtils {
     public static String propertiesFilePath = "src/main/resources/setup.properties";
