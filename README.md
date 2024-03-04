@@ -43,6 +43,7 @@ This is a simple project to run on your device to convert long tables into beaut
 - [x] Add Header
 - [x] Add Footer
 - [x] Set Config JSON
+- [x] Exceptions support
 - [ ] Inbuilt CSV Parser
 - [ ] Unit Tests
 - [ ] E2E Tests
