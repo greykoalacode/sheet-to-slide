@@ -17,7 +17,11 @@ public class SlideGenerator {
     private static String footerText;
     private static String footerSubText;
 
-    public static void populateSlides(List<String[]> csvData, XMLSlideShow ppt) {
+    public static void populateSlides(List<String[]> csvData, XMLSlideShow ppt) throws Exception {
+
+        // load header - footer
+        loadSlideProperties();
+
         // Internal Variables
         // Define table dimensions based on CSV data
         int numRows = csvData.size();
@@ -96,9 +100,7 @@ public class SlideGenerator {
             int tableYCoordinate = (pageHeight - (int) tableHeight) / 4;
             table.setAnchor(new Rectangle(tableXCoordinate, tableYCoordinate, (int) tableWidth, (int) tableHeight));
 
-            if (loadSlideProperties()) {
-                setSlideLayout(newSlide, 50 + tableYCoordinate + tableHeight);
-            }
+            setSlideLayout(newSlide, 50 + tableYCoordinate + tableHeight);
 
             rowCount += currentRow - 1;
         }
@@ -141,16 +143,12 @@ public class SlideGenerator {
         }
     }
 
-    private static boolean loadSlideProperties() {
+    private static void loadSlideProperties() {
         Map<Object, Object> propertiesMap = readProperties();
-        if (propertiesMap != null) {
-            headerText = (String) propertiesMap.get("headerText");
-            headerSubText = (String) propertiesMap.get("headerSubText");
-            footerText = (String) propertiesMap.get("footerText");
-            footerSubText = (String) propertiesMap.get("footerSubText");
-            return true;
-        }
-        return false;
+        headerText = (String) propertiesMap.get("headerText");
+        headerSubText = (String) propertiesMap.get("headerSubText");
+        footerText = (String) propertiesMap.get("footerText");
+        footerSubText = (String) propertiesMap.get("footerSubText");
     }
 
 }
