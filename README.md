@@ -7,8 +7,6 @@ This is a simple project to run on your device to convert long tables into beaut
 ## Libraries used
 - Apache POI
 - OpenCSV
-- SLF4J
-- Log4J 2
 
 ## Prerequisites
 - JDK
